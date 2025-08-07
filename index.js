@@ -2,6 +2,7 @@ let currentid = 1;
 
 const nameInput = document.getElementById("name");
 const infoText= document.getElementById("desc-box");
+const pokeimg = document.getElementById("poke-sprite");
 
 async function pokesearch(inputval = null) {
     try {
@@ -23,7 +24,6 @@ async function pokesearch(inputval = null) {
 
         currentid = data.id;
 
-        const pokeimg = document.getElementById("poke-sprite");
         pokeimg.src = sprite;
         pokeimg.style.display = "block";
 
@@ -31,9 +31,9 @@ async function pokesearch(inputval = null) {
         nameInput.value = "";
         
     } catch (error) {
-        const pokeimg = document.getElementById("poke-sprite");
-        pokeimg.src = "Pokemon-Pokeball-PNG-HD-Image.png"
-
+        pokeimg.style.display = "none";
+        pokeimg.src = "Pokemon-Pokeball-PNG-HD-Image.png";//just cuzzzz
+        infoText.textContent = 'No description available.';
         console.error(error);
         nameInput.disabled = false;
     }
