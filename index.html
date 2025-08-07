@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokedex</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="Pokemon-Pokeball-PNG-HD-Image.png">
+</head>
+<body>
+    <div id="search-box">
+        <h1>Pokedex</h1>
+        <form id="poke-form">
+        <input type="text" id="name" autocomplete="off">
+        <div>
+        <button type="button" onclick="prevpoke()">&lt;</button>
+        <button type="submit" onclick="pokesearch()">search</button>
+        <button type="button" onclick="nextpoke()">&gt;</button>
+        </div>
+        </form>
+        <div id="poke-box">
+            <img src="Pokemon-Pokeball-PNG-HD-Image.png" id="poke-sprite">
+        </div>
+    </div>
+    <div id="desc-box">
+
+    </div>
+</body>
+<script src="index.js"></script>
+</html>
