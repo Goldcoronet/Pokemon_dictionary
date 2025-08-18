@@ -46,7 +46,7 @@ input {
 }
 
 body{
-    background-image: url('bg2.jpg');
+    background-image: url('/images/bg2.jpg');
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -54,6 +54,8 @@ body{
     align-items: center;
     display: flex;
     flex-direction: column;
+    background-attachment: fixed;
+
 }
 
 h1{
@@ -78,4 +80,20 @@ h1{
     padding: 10px;
     font-size: 1.1rem;
 
+}
+
+#shiny{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   margin: auto;
+   background-color: rgba(255, 255, 0, 0.87);
+   color: black;
+    margin-top: 15px;
+    margin-left: 20px;
+    padding: 0;
+    font-size: 10px;
+    cursor: pointer;
+    border: 2px black solid;
+    border-radius: 100%;
 }
