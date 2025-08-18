@@ -3,6 +3,8 @@ let currentid = 1;
 const nameInput = document.getElementById("name");
 const infoText= document.getElementById("desc-box");
 const pokeimg = document.getElementById("poke-sprite");
+let lastData = null;
+let isShiny = false;
 
 async function pokesearch(inputval = null) {
     try {
@@ -11,7 +13,10 @@ async function pokesearch(inputval = null) {
 
         if (!response.ok) throw new Error("Not found");
 
+        //To fetch sprite
         const data = await response.json();
+        lastData = data;
+
         const sprite = data.sprites.front_default;
 
         //To fetch Description
@@ -41,10 +46,12 @@ async function pokesearch(inputval = null) {
 
 function nextpoke() {
     pokesearch(currentid + 1);
+    isShiny = false;
 }
 
 function prevpoke() {
     if (currentid !== 1) pokesearch(currentid - 1);
+    isShiny = false;
 }
 
 document.getElementById("poke-form").addEventListener("submit", function (e) {
@@ -63,4 +70,11 @@ document.addEventListener("keydown", (event) => {
         prevpoke();
     }
 });
+
+function toggleshiny(){
+    if(!lastData) return;
+    isShiny=!isShiny;
+
+    pokeimg.src= isShiny? lastData.sprites.front_shiny : lastData.sprites.front_default;
+}
 
